@@ -6,6 +6,6 @@ RUN mvn clean package -DskipTests
 
 FROM openjdk:11-jre-slim
 WORKDIR /app
-COPY --from=build /app/target/springboot-demo-0.0.1-SNAPSHOT.jar /app/app.jar
+COPY --from=build /app/target/springboot-demo-0.0.1-SNAPSHOT.jar /app.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "/app.jar"]
