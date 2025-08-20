@@ -2,13 +2,13 @@ package com.example.demo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import java.util.Date;
+
 @Controller
 public class WelcomeController {
-        @GetMapping("/")
+    @GetMapping("/")
     public String welcome(Model model) {
-        model.addAttribute("message", "Welcome to My Spring Boot Application!");
-        model.addAttribute("currentTime", new Date());
+        //model.addAttribute("message", "Welcome to My Spring Boot Application!");
+        //model.addAttribute("currentTime", new Date());
         return "index";
     }
 }
