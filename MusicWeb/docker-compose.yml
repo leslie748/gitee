@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  music-website:
+    build: .
+    ports:
+      - "8083:8080"
+    volumes:
+      - ./src/main/resources/static/images:/app/src/main/resources/static/images
+    restart: unless-stopped
+    container_name: music-website

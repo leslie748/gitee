@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>music-pub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .singer-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .singer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .singer-image {
+            height: 250px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">Welcome to MusicPub</a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Singer Introduce</h1>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+            <div th:each="singer : ${singers}" class="col">
+                <div class="card singer-card h-100">
+                    <img th:src="${singer.imageUrl}" th:alt="${singer.name}" class="card-img-top singer-image">
+                    <div class="card-body text-center">
+                        <h5 class="card-title" th:text="${singer.name}"></h5>
+                        <a th:href="@{/singer/{id}(id=${singer.id})}" class="btn btn-primary">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
