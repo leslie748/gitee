@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  gitlab:
+    image: 757f0e64b523
+    container_name: gitlab
+    restart: always
+    privileged: true
+    ports:
+      - "9980:80"    # 网页访问端口
+      - "9922:22"    # SSH端口
+    volumes:
+      - /home/gitlab/etc:/etc/gitlab        # 配置文件
+      - /home/gitlab/log:/var/log/gitlab    # 日志文件
+      - /home/gitlab/opt:/var/opt/gitlab    # 应用数据
+    environment:
+      - GITLAB_EXTERNAL_URL=http://114.67.244.155
+    
