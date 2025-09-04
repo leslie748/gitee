@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  nexus:
+    image: sonatype/nexus3
+    container_name: nexus
+    restart: always
+    ports:
+      - "8868:8081"   # 映射Web UI端口
+      - "5000:5000"   # 用于HTTP镜像上传
+      - "5001:5001"   # 用于HTTP/HTTPS镜像下载
+    volumes:
+      - /opt/docker/nexus:/nexus-data  # 持久化存储Nexus数据
+    
