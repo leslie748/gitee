@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  jenkins:
+    image: jenkins:2.60.3
+    container_name: jenkins
+    restart: always
+    ports:
+      - "8080:8080"  # Jenkins Web界面端口
+      - "50000:50000"  # Jenkins代理端口
+    volumes:
+      - jenkins_data:/var/jenkins_home  # 持久化存储Jenkins数据
+
+volumes:
+  jenkins_data:  
+    
